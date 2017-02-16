@@ -4,9 +4,13 @@ RUN yum update -y && yum install epel-release -y && rpm -Uvh --replacepkgs http:
 
 RUN yum install ImageMagick ImageMagick-devel ImageMagick-perl -y
 
+RUN yum install -y gcc gcc-c++ autoconf automake make
+
 RUN yum-config-manager --enable remi,remi-php56
 
 RUN yum install -y git php php-pecl-apcu php-cli php-fpm php-common php-devel php-gd php-mbstring php-pdo php-pecl-apc php-xml php-curl php-opcache php-imagick php-intl php-memcache php-mcrypt php-mhash php-mysqlnd php-xsl php-pear php-zip php-openssl php-ssh2 php-soap php-opcache php-bcmath
+
+RUN pecl install Xdebug
 
 RUN yum install -y nodejs npm
 RUN npm install uglify-js -g && npm install uglifycss -g
